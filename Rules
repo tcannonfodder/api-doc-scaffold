@@ -9,6 +9,9 @@ route '/static/**/*' do
   # /static/foo.html → /foo.html
   "/assets" + item.identifier.to_s.sub(/\A\/static/, '')
 end
+
+KRAMDOWN_OPTS = {toc_levels: [2,3], auto_ids: true, syntax_highlighter: "rouge"}
+
 compile '/**/*.html' do
   filter :erb
   layout '/default.*'
@@ -24,16 +27,17 @@ end
 # using the :kramdown filter. It is commented out by default, because kramdown
 # is not bundled with Nanoc or Ruby.
 #
-#compile '/**/*.md' do
-#  filter :kramdown
-#  layout '/default.*'
-#
-#  if item.identifier =~ '**/index.*'
-#    write item.identifier.to_s
-#  else
-#    write item.identifier.without_ext + '/index.html'
-#  end
-#end
+compile '/**/*.md' do
+ filter :kramdown, KRAMDOWN_OPTS
+ filter :erb
+ layout '/default.*'
+
+ if item.identifier =~ '**/index.*'
+   write item.identifier.to_s
+ else
+   write item.identifier.without_ext + '/index.html'
+ end
+end
 
 compile '/**/*' do
   write item.identifier.to_s
