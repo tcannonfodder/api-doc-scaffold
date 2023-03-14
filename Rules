@@ -1,5 +1,14 @@
 #!/usr/bin/env ruby
 
+passthrough '/assets/*'
+
+compile '/static/**/*' do
+end
+
+route '/static/**/*' do
+  # /static/foo.html → /foo.html
+  "/assets" + item.identifier.to_s.sub(/\A\/static/, '')
+end
 compile '/**/*.html' do
   filter :erb
   layout '/default.*'

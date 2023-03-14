@@ -10,6 +10,13 @@ data_sources:
   - type: filesystem
     encoding: utf-8
 
+  # For assets that are just copied over
+  -
+    type: filesystem
+    items_root: /static
+    content_dir: 'static'
+    layouts_dir: null
+
 
 endpoint_base_url: https://api.myapp.com/v1/
 base_url: http://api.test
