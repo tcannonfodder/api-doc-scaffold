@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= @config[:site_name] %> - <%= @item[:title] %></title>
+    <link importance="high" rel="stylesheet preload" type="text/css" href="/assets/neat.css" as="style">
+    <link importance="high" rel="stylesheet preload" type="text/css" href="/assets/custom.css" as="style">
+
+    <!-- Pygments stylesheets https://pygments.org/styles/ -->
+    <link importance="low"  rel="stylesheet preload" type="text/css" href="/assets/mexico-light.css" as="style">
+    <link importance="low"  rel="stylesheet preload" type="text/css" href="/assets/porple.css" as="style" media="(prefers-color-scheme: dark)">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
+  </head>
+  <body>
+    <header>
+      <h1><%= link_to "🏡", "/", class: "home" %> <%= @config[:site_name] %></h1>
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>Test Resource</li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>
