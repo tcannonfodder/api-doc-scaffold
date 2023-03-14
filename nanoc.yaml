@@ -9,3 +9,8 @@ prune:
 data_sources:
   - type: filesystem
     encoding: utf-8
+
+
+endpoint_base_url: https://api.myapp.com/v1/
+base_url: http://api.test
+site_name: Your API documentation
