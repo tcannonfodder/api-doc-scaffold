@@ -1,5 +1,9 @@
 /* Put your custom CSS rules here */
 
+:root {
+  --request-url-block-border: 1px solid grey;
+}
+
 .request-url {
-  background-color: blue
+  border: var(--request-url-block-border);
 }

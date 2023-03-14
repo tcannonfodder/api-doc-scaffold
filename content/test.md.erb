@@ -12,10 +12,9 @@ title: Test resource
 ## List resource
 
 
-<%= %>
+<% render '/request-block.html.erb', {request_method: :get, url: endpoint_url(path: "hello/world")} do %>
+<%= json_resource_markdown(name: :test_request_body) %>
+<% end %>
 
 ## Custom code
 
-~~~ruby
-puts "a"
-~~~

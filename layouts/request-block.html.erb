@@ -1,0 +1,6 @@
+<section class='request-block'>
+  <%= render '/request-url-block.html.erb', {request_method: request_method, url: url} %>
+  <div markdown="1">
+    <%= yield %>
+  </div>
+</section>

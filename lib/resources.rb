@@ -7,7 +7,5 @@ module Resources
     hello: "world"
   }
 
-  TEST_REQUEST_BODY = {
-    values: [1,2,3,4]
-  }
+  TEST_REQUEST_BODY = {foo: [:bar, :baz], bat: {bam: 0, bad: 1}}
 end
