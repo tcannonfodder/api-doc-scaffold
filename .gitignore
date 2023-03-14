@@ -8,3 +8,8 @@ tmp/nanoc/
 
 # Crash Log
 crash.log
+
+
+.DS_Store
+
+.byebug_history
