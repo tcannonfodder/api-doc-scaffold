@@ -23,20 +23,20 @@ compile '/**/*.html' do
   end
 end
 
-# This is an example rule that matches Markdown (.md) files, and filters them
+# This is an example rule that matches Markdown & ERB (.md.erb) files, and filters them
 # using the :kramdown filter. It is commented out by default, because kramdown
 # is not bundled with Nanoc or Ruby.
 #
-compile '/**/*.md' do
- filter :kramdown, KRAMDOWN_OPTS
- filter :erb
- layout '/default.*'
+compile '/**/*.md.erb' do
+  filter :erb
+  filter :kramdown, KRAMDOWN_OPTS
+  layout '/default.*'
 
- if item.identifier =~ '**/index.*'
-   write item.identifier.to_s
- else
-   write item.identifier.without_ext + '/index.html'
- end
+  if item.identifier =~ '**/index.*'
+    write item.identifier.to_s.delete_suffix('.md')
+  else
+   write item.identifier.without_ext.delete_suffix('.md') + '/index.html'
+  end
 end
 
 compile '/**/*' do
