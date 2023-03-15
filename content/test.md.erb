@@ -11,10 +11,33 @@ title: Test resource
 
 ## List resource
 
+<%= render '/request-block.html.erb', {request_method: :get, url: endpoint_url(path: "hello/world")} %>
 
-<% render '/request-block.html.erb', {request_method: :get, url: endpoint_url(path: "hello/world")} do %>
+### Request Parameters
+
+`name`
+: _String_
+: The name to search for
+
+`value`
+: _String_
+: The value to search for
+
 <%= json_resource_markdown(name: :test_request_body) %>
+
+### Example response
+<% render '/request-block.html.erb', {request_method: :get, url: endpoint_url(path: "hello/world", params: {name: "test"})} do %>
+<%= json_resource_markdown(name: :test_resource) %>
 <% end %>
 
-## Custom code
 
+## Create resource
+
+<%= render '/request-block.html.erb', {request_method: :post, url: endpoint_url(path: "hello/world")} %>
+
+### Request parameters
+
+
+## URL only example
+
+<%= render '/request-block.html.erb', {request_method: :get, url: endpoint_url(path: "hello/world")} %>
