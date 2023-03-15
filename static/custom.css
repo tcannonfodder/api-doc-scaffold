@@ -1,9 +1,42 @@
 /* Put your custom CSS rules here */
 
 :root {
-  --request-url-block-border: 1px solid grey;
+  --banner-background-color: var(--dark);
+  --banner-color: var(--light);
+
+  --border-color: var(--dark);
+
+  --padding: 0.5rem;
+  --request-block-border: 1px solid var(--border-color);
+}
+
+.request-block {
+  border: var(--request-block-border);
+  padding-bottom: 0;
 }
 
 .request-url {
-  border: var(--request-url-block-border);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+
+  background-color: var(--banner-background-color);
+  color: var(--banner-color);
+  display: block;
+}
+
+
+.request-block pre.highlight {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: var(--padding);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --banner-background-color: var(--light);
+    --banner-color: var(--dark);
+    --border-color: var(--light);
+  }
 }
